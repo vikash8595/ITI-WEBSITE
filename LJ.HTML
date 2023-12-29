@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>
+    Digital clock in javascript
+    </title>
+    
+   <style>
+    
+       h2{font-size: 20px;}
+    
+    </style>
+    
+    <script >    function currentTime(){
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    var period = "AM";
+    var date = now.getDate();
+    var day = now.getDay();
+    var month = now.getMonth();
+    var year = now.getFullYear();
+    
+        
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+     
+        
+     if(hour >= 12){
+         
+        
+        period = "PM";
+    }else {
+        period = "AM";
+    }
+                  
+    if(hour > 12){
+        hour = hour - 12;
+    }
+ 
+     
+
+    
+        
+   if (hour < 10){
+        hour = "0"+hour;
+    }else {
+        hour = hour;
+    } 
+        
+        
+   if (minute<10){
+        minute = "0"+minute;
+    }else {
+        minute = minute;
+    }  
+        
+        
+        
+   if (second < 10){
+        second = "0"+second;
+    }else {
+        second = second;
+    } 
+        
+        
+        
+    document.getElementById('clock').innerHTML= hour + ":" + minute + ":" + second + " " + period +"<br>"+ days[day] + ", " + date + " " + months[month] + " " + year;
+    
+    setTimeout(currentTime, 1000);
+    
+       
+
+} 
+
+
+ </script>
+    </head>
+
+<body onload="currentTime()">
+    
+   
+    
+    <h2 id="clock"> </h2>
+    
+    
+    </body>
+    
+</html>
